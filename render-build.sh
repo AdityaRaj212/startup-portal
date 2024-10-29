@@ -15,7 +15,7 @@ cp -r frontend/build/* backend/static/
 
 # Install backend dependencies
 echo "Installing backend dependencies..."
-pip install -r backend/requirements.txt
+# pip install -r backend/requirements.txt
 
 # Run database migrations if needed
 echo "Running migrations..."
