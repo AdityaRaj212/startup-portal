@@ -11,7 +11,7 @@ import os
 from groq import Groq
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder="../frontend/dist")
+app = Flask(__name__, static_folder="../front-end/dist")
 CORS(app)
 
 @app.route("/", defaults={"path": ""})
