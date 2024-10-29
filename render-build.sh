@@ -18,8 +18,8 @@ echo "Copying front-end build to Django static files..."
 cp -r front-end/dist/* backend/static/
 
 # Install backend dependencies
-# echo "Installing backend dependencies..."
-# pip install -r backend/requirements.txt
+echo "Installing backend dependencies..."
+pip install -r backend/requirements.txt
 
 # Run Django migrations if needed
 echo "Running migrations..."
