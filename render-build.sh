@@ -25,6 +25,9 @@ pip install -r backend/requirements.txt
 echo "Starting backend server..."
 python backend/app.py &
 
+# Install serve globally if needed
+npm install -g serve
+
 # Start frontend server if needed, otherwise Render will serve static files from the backend
 echo "Starting frontend server..."
 serve -s front-end/dist
