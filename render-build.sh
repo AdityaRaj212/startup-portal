@@ -56,5 +56,4 @@ cp -r front-end/dist/* backend/static/
 echo "Installing backend dependencies..."
 pip install -r backend/requirements.txt
 
-echo "Starting backend server..."
-python backend/app.py
+
