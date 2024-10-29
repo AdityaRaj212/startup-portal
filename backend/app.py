@@ -106,6 +106,11 @@ def parse_target(response):
         "worst_prospects": worst_prospects_match.group(0).strip() if worst_prospects_match else "",
     }
 
+@app.route("/")
+def home():
+    return "Welcome to the AI Startup Portal!"
+
+
 @app.route('/generate-ideas', methods=['POST'])
 def generate_ideas():
     data = request.json
