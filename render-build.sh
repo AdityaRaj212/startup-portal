@@ -21,10 +21,18 @@ cp -r front-end/dist/* backend/static/
 echo "Installing backend dependencies..."
 pip install -r backend/requirements.txt
 
+# Start backend server (assuming backend has an entry file like app.py or server.py)
+echo "Starting backend server..."
+python backend/app.py &
+
+# Start frontend server if needed, otherwise Render will serve static files from the backend
+echo "Starting frontend server..."
+serve -s front-end/dist
+
 
 # #!/usr/bin/env bash
 
-# # Install root dependencies if needed
+# # Install root dependencies
 # echo "Installing root dependencies..."
 # npm install
 
