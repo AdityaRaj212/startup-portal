@@ -1,10 +1,29 @@
-from flask import Flask, jsonify, request
-import re
+# from flask import Flask, jsonify, request
+# import re
+# from groq import Groq
+# from flask_cors import CORS
+
+# app = Flask(__name__)
+# CORS(app)
+
+from flask import Flask, jsonify, request, send_from_directory
+import os
 from groq import Groq
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend/dist")
 CORS(app)
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + "/" + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
+
+# Keep all other route and API definitions below this
+
 
 # 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
 # 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
@@ -106,9 +125,9 @@ def parse_target(response):
         "worst_prospects": worst_prospects_match.group(0).strip() if worst_prospects_match else "",
     }
 
-@app.route("/")
-def home():
-    return "Welcome to the AI Startup Portal!"
+# @app.route("/")
+# def home():
+#     return "Welcome to the AI Startup Portal!"
 
 
 @app.route('/generate-ideas', methods=['POST'])
